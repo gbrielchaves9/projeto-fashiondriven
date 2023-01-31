@@ -32,6 +32,16 @@ body {
     flex-wrap: wrap;
     justify-content: space-around;
 }
+.grande2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.grande3 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
 
 .pequena {
     display: flex;
@@ -39,17 +49,6 @@ body {
     align-items: center;
 }
 
-.roupas {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-
-.camisas {
-    display: flex;
-}
 
 .direita {
     width: 100px;
@@ -63,13 +62,7 @@ body {
     align-items: center;
 }
 
-.roupas h1 {
-    font-size: 18px;
-}
 
-.roupas p {
-    font-size: 18px;
-}
 
 .titulo {
     margin-top: 50px;
@@ -132,4 +125,8 @@ button {
 .inferior {
     height: 342px;
     background-color: red;
+}
+
+.borda{
+    border: 3px solid #404EED
 }
