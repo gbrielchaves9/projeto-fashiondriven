@@ -26,18 +26,20 @@ body {
 .branco {
     width: 45%;
 }
+
 .grande {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
 
-.pequena{
+.pequena {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.roupas{
+
+.roupas {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -45,10 +47,11 @@ body {
 }
 
 
-.camisas{
+.camisas {
     display: flex;
 }
-.direita{
+
+.direita {
     width: 100px;
     height: 100px;
     background-color: #F2F2F2;
@@ -98,6 +101,7 @@ button {
 }
 
 .pesquisa {
+    margin-top: 30px;
     width: 450px;
     margin-left: 100px;
     display: flex;
@@ -110,25 +114,20 @@ button {
 
 .botao {
     margin-top: 30px;
-    margin-bottom: 50px;
 }
 
 .azul {
     width: 55%;
 }
 
-.foto {
+.propaganda {
     width: 100%;
     background-color: #404EED;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.foto img {
     height: 784px;
 }
-
 
 .inferior {
     height: 342px;
