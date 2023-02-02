@@ -1,18 +1,32 @@
 let modelo;
 let gola;
 let tecido;
-let linkbonito
+let linkbonito;
+let peganome;
+let validarInput = false;
+function perguntaNome() {
+
+    peganome = prompt('Qual o seu nome?');
+
+    while (peganome === '' || peganome === null) {
+        alert('digite um nome !!!');
+        peganome = prompt('Qual o seu nome?');
+    }
+
+}
+
+perguntaNome();
 function tipo1(pega) {
     modelo = document.querySelector('.grande .borda')
     if (modelo !== null) {
         modelo.classList.remove('borda')
     }
     pega.classList.add('borda')
-
     modelo = pega.querySelector('.grande .direita img')
     console.log(modelo)
     mudarBotao()
 }
+
 function tipo2(pega2) {
     gola = document.querySelector('.grande2 .borda')
     if (gola !== null) {
@@ -36,19 +50,28 @@ function tipo3(pega3) {
     console.log(tecido)
     mudarBotao()
 }
-
+function inputVazio(){
+    const cavalor = document.querySelector('.input').value
+    /* é preciso dar um click fora para liberar o input*/
+    if(cavalor !== "" && cavalor !== undefined && cavalor !== null) {
+        validarInput = true;
+    }else {
+        validarInput = false
+    }
+    console.log("mudei")
+    mudarBotao()
+}
 
 function mudarBotao() {
-    if (modelo !== undefined && gola !== undefined && tecido !== undefined) {
+    console.log(validarInput)
+    if (modelo !== undefined && gola !== undefined && tecido !== undefined && validarInput === true ) {
         const muda = document.querySelector('.botao');
         muda.classList.add('ativo');
         muda.removeAttribute('disabled');
     }
 }
+
 mudarBotao()
-function pegaLink() {
-    alert("ok")
-}
 
 let roupa = []
 function pegaRoupa() {
@@ -61,35 +84,49 @@ function pegaRoupa() {
         console.log(err)
     })
 }
+
 pegaRoupa()
-function renderizarRoupa() {//renderiza quando a promise da certo ! percorre o array adicionando i++
+function renderizarRoupa() {
     const ul = document.querySelector(".catalogo")
     ul.innerHTML = "";
     console.log(roupa)
     let template = "";
     for (let i = 0; i < roupa.length; i++) {
         template += `
-     <li class="peca"><img src="${roupa[i].image}"><p>${roupa[i].owner}</p></li>
+     <li class="peca" onclick="pegablusa()" ><img src="${roupa[i].image}"><p>${roupa[i].owner}</p></li>
         `
-        ul.innerHTML += template;
     }
+    ul.innerHTML = template;
 }
 
+function pegaLink() {
+    const cavalor = document.querySelector('.input').value
+    const fenviar = {
+        model: "t-shirt",
+        neck: "v-neck",
+        material: "silk",
+        image: cavalor,
+        owner: peganome,
+        author: peganome
+    };
+    const promise = axios.post('https://mock-api.driven.com.br/api/v4/shirts-api/shirts', fenviar);
+    promise.catch(erroEnviarPedido);
+    promise.then(sucessoEnviarPedido);
+} 
 
-/*function pergarDados(resposta) { 
-    console.log(resposta)
-    const promessa = axios.get('https://mock-api.driven.com.br/api/v4/shirts-api/shirts')
-    promessa.then(dadosChegaram) 
-    promessa.then(erroEMcarregar) 
-
-
+ function sucessoEnviarPedido() {
+console.log(sucessoEnviarPedido)
+alert("encomenda feita")
+setInterval(()=>{
+pegaRoupa()
+},3000)
 }
-pergarDados()  
 
-function dadosChegaram(resposta) { 
-    roupa = resposta.data;
-   
+function erroEnviarPedido() {
+console.log(erroEnviarPedido)
+alert('Ops, não conseguimos processar sua encomenda')
 }
-function erroEMcarregar(erronaResposta){
-    console.log(erronaResposta)
-}*/
+
+function pegablusa() {
+alert('voce pegou !')
+} 
