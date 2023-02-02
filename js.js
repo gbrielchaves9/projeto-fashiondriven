@@ -4,26 +4,26 @@ let tecido;
 let linkbonito;
 let peganome;
 let validarInput = false;
-function perguntaNome() {
-
+let p1 , p2 , p3;
+/*function perguntaNome() {
     peganome = prompt('Qual o seu nome?');
-
     while (peganome === '' || peganome === null) {
         alert('digite um nome !!!');
         peganome = prompt('Qual o seu nome?');
     }
 
 }
-
-perguntaNome();
+perguntaNome();*/
 function tipo1(pega) {
     modelo = document.querySelector('.grande .borda')
     if (modelo !== null) {
         modelo.classList.remove('borda')
     }
     pega.classList.add('borda')
+    p1= pega.parentNode.querySelector('.nome').innerHTML
+    console.log(p1)
+
     modelo = pega.querySelector('.grande .direita img')
-    console.log(modelo)
     mudarBotao()
 }
 
@@ -35,7 +35,9 @@ function tipo2(pega2) {
     pega2.classList.add('borda')
 
     gola = pega2.querySelector('.grande2 .direita img')
-    console.log(gola)
+    p2= pega2.parentNode.querySelector('.nome').innerHTML
+    console.log(p2)
+
     mudarBotao()
 }
 
@@ -45,9 +47,11 @@ function tipo3(pega3) {
         tecido.classList.remove('borda')
     }
     pega3.classList.add('borda')
+    p3= pega3.parentNode.querySelector('.nome').innerHTML
+    console.log(p3)
+    
 
     tecido = pega3.querySelector('.grande3 .direita img')
-    console.log(tecido)
     mudarBotao()
 }
 function inputVazio(){
@@ -58,12 +62,10 @@ function inputVazio(){
     }else {
         validarInput = false
     }
-    console.log("mudei")
     mudarBotao()
 }
 
 function mudarBotao() {
-    console.log(validarInput)
     if (modelo !== undefined && gola !== undefined && tecido !== undefined && validarInput === true ) {
         const muda = document.querySelector('.botao');
         muda.classList.add('ativo');
@@ -73,7 +75,7 @@ function mudarBotao() {
 
 mudarBotao()
 
-let roupa = []
+/*let roupa = []
 function pegaRoupa() {
     const promise = axios.get("https://mock-api.driven.com.br/api/v4/shirts-api/shirts")
     promise.then((res) => {
@@ -129,4 +131,6 @@ alert('Ops, não conseguimos processar sua encomenda')
 
 function pegablusa() {
 alert('voce pegou !')
-} 
+} */
+
+
