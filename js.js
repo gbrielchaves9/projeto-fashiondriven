@@ -118,7 +118,7 @@ function mudaNomeModelo() {
 function mudaNomeGola() {
     if (gola === "Gola V") {
         gola = "v-neck";
-    } else if (gola === "Gola redonda") {
+    } else if (gola === "Gola Redonda") {
         gola = "round";
     } else if (gola === "Gola polo") {
         gola = "polo";
